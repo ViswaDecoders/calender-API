@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of events</title>
+</head>
+
+<body>
+    <center>
+        <h1><u>List of events</u></h1>
+        {% if events|length == 0 %}
+        <h3>No upcoming events found</h3>
+        {% endif %}
+        {% for event in events %}
+        <ol>
+            <li>
+                <ul>
+                    <li>Event name: {{event.summary}}</li>
+                    <li>Event Link: <a href="{{event.htmlLink}}">Link</a></li>
+                    <li>Event created: {{event.created}}</li>
+                    <li>Event start: {{event.start.dateTime}} {{event.start.timeZone}}</li>
+                    <li>Event start: {{event.end.dateTime}} {{event.end.timeZone}}</li>
+                </ul>
+            </li>
+        </ol>
+        {% endfor %}
+    </center>
+</body>
+
+</html>
